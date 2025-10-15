@@ -1,6 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 int prod(int** arr1,int** arr2,int** res,int a,int b,int c){
+    for (int i = 0; i < a; i++) {
+        for (int j = 0; j < c; j++) {
+            res[i][j] = 0;
+        }
+    }
     
     for (int i=0;i<a;i++){
         for (int j=0;j<b;j++){
