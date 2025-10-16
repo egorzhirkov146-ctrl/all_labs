@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-int prod(int** arr1,int** arr2,int** res,int a,int b,int c){
+int prod(float** arr1,float** arr2,float** res,int a,int b,int c){
+
     for (int i = 0; i < a; i++) {
         for (int j = 0; j < c; j++) {
             res[i][j] = 0;
@@ -23,36 +24,36 @@ int main(){
     scanf("%d",&n);
     scanf("%d",&m);
     scanf("%d",&k);
-    int** array1 = (int**)malloc(sizeof(int*) * n);
+    float** array1 = (float**)malloc(sizeof(float*) * n);
     for (int i = 0; i < n; ++i) {
-        array1[i] = (int*)malloc(sizeof(int) * m);
+        array1[i] = (float*)malloc(sizeof(float) * m);
     }
     
-    int** array2 = (int**)malloc(sizeof(int*) * m);
+    float** array2 = (float**)malloc(sizeof(float*) * m);
     for (int i = 0; i < m; ++i) {
-        array2[i] = (int*)malloc(sizeof(int) * k);
+        array2[i] = (float*)malloc(sizeof(float) * k);
     }
     
-    int** result = (int**)malloc(sizeof(int*) * n);
+    float** result = (float**)malloc(sizeof(float*) * n);
     for (int i = 0; i < n; ++i) {
-        result[i] = (int*)malloc(sizeof(int) * k);
+        result[i] = (float*)malloc(sizeof(float) * k);
     }
 
 
     for (int i=0;i<n;i++){
         for (int j=0;j<m;j++){
-            scanf("%d",&array1[i][j]);
+            scanf("%f",&array1[i][j]);
         }
     }
     for (int i=0;i<m;i++){
         for (int j=0;j<k;j++){
-            scanf("%d",&array2[i][j]);
+            scanf("%f",&array2[i][j]);
         }
     }
     prod( array1,array2,result,n,m,k);
     for (int i=0;i<n;i++){
         for (int j=0;j<k;j++){
-            printf("%d ",result[i][j]);
+            printf("%f ",result[i][j]);
 
         }
         printf("\n");
@@ -62,6 +63,8 @@ int main(){
     for (int i = 0; i < m; i++) free(array2[i]);
     free(array2);
     for (int i = 0; i < n; i++) free(result[i]);
+    free(result);
     return 0;
 }
+
 
